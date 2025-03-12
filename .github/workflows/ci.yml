@@ -1,0 +1,125 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {
+              name: "Ubuntu GCC",
+              os: ubuntu-latest,
+              build_type: "Release",
+              cc: "gcc",
+              cxx: "g++"
+            }
+          - {
+              name: "macOS Latest",
+              os: macos-latest,
+              build_type: "Release",
+              cc: "clang",
+              cxx: "clang++"
+            }
+          - {
+              name: "Windows MSVC",
+              os: windows-latest,
+              build_type: "Release",
+              cc: "cl",
+              cxx: "cl"
+            }
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies (Ubuntu)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential libgtest-dev
+
+    - name: Install dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew install cmake googletest
+
+    - name: Setup MSVC (Windows)
+      if: runner.os == 'Windows'
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Configure CMake
+      run: |
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{matrix.config.build_type}} -DBUILD_TESTING=ON
+      env:
+        CC: ${{ matrix.config.cc }}
+        CXX: ${{ matrix.config.cxx }}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{matrix.config.build_type}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: ctest -C ${{matrix.config.build_type}} --output-on-failure
+
+  format-check:
+    name: Code Formatting Check
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install clang-format
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-format
+
+    - name: Check formatting
+      run: |
+        find include src test examples -name '*.hpp' -o -name '*.cpp' | xargs clang-format --dry-run --Werror
+
+  static-analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y clang-tidy cppcheck
+
+    - name: Install cmake
+      run: |
+        sudo apt-get install -y cmake build-essential
+
+    - name: Configure CMake
+      run: cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+    - name: Run cppcheck
+      run: |
+        cppcheck --enable=warning,performance,portability --error-exitcode=1 \
+          --inline-suppr --suppress=missingInclude \
+          --std=c++17 include src
+
+  cmake-validation:
+    name: CMake Configuration Validation
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake build-essential python3-pip
+        pip3 install cmake-lint
+
+    - name: Validate CMake files
+      run: |
+        find . -name CMakeLists.txt -o -name "*.cmake" | xargs cmake-lint
+

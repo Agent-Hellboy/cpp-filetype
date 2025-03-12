@@ -1,0 +1,138 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Source code files
+*.cpp text diff=cpp
+*.hpp text diff=cpp
+*.h text diff=cpp
+*.c text diff=c
+*.cc text diff=cpp
+*.cxx text diff=cpp
+*.js text diff=javascript
+*.py text diff=python
+*.java text diff=java
+*.rb text diff=ruby
+*.pl text diff=perl
+*.go text diff=go
+*.php text diff=php
+
+# Documentation and configuration
+*.md text diff=markdown
+*.mdx text diff=markdown
+*.markdown text diff=markdown
+*.txt text
+*.html text diff=html
+*.css text diff=css
+*.scss text diff=css
+*.sass text diff=css
+*.json text
+*.xml text
+*.yml text
+*.yaml text
+*.toml text
+*.ini text
+*.config text
+
+# Build system files
+CMakeLists.txt text
+Makefile text
+*.cmake text
+*.mk text
+*.sln text eol=crlf
+*.vcproj text eol=crlf
+package.json text
+package-lock.json text
+pom.xml text
+
+# Scripts should have specific line endings
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+*.fish text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Git config files
+.gitignore text
+.gitattributes text
+.gitconfig text
+.gitmodules text
+
+# Configure merge behavior to reduce conflicts
+*.lock binary
+package-lock.json -diff
+yarn.lock -diff
+pnpm-lock.yaml -diff
+# Use union merge for changelog to avoid conflicts
+CHANGELOG.md merge=union
+# Use union merge for project metadata
+*.csproj merge=union
+# Avoid merge conflicts in generated files
+*.min.js -diff
+*.min.css -diff
+
+# IDE and editor configuration files
+.editorconfig text
+.vscode/* text
+.idea/* text
+*.sublime-project text
+
+# Declare binary files (to prevent modification)
+# Images
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.avif binary
+*.bmp binary
+*.tiff binary
+*.svg text
+
+# Documents
+*.pdf binary
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# Archives
+*.zip binary
+*.rar binary
+*.7z binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+*.xz binary
+
+# Audio and Video
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.flac binary
+*.mp4 binary
+*.avi binary
+*.mov binary
+*.mkv binary
+*.webm binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# Exclude specific directories from exports
+.github export-ignore
+.vscode export-ignore
+.idea export-ignore
+docs export-ignore
+test export-ignore
+tests export-ignore
+examples export-ignore
+
