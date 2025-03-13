@@ -1,6 +1,6 @@
+#include <vector>
 #include "filetype/filetype.hpp"
 #include <gtest/gtest.h>
-#include <vector>
 
 class FileTypeTest : public ::testing::Test {
 protected:
@@ -79,7 +79,7 @@ TEST_F(FileTypeTest, TypeComparison) {
     EXPECT_FALSE(filetype::is(png_data, filetype::image::TYPE_JPEG));
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
