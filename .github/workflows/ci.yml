@@ -111,15 +111,14 @@ jobs:
     name: CMake Configuration Validation
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y cmake build-essential python3-pip
-        pip3 install cmake-lint
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake build-essential python3-pip
+          pip3 install cmakelint
 
-    - name: Validate CMake files
-      run: |
-        find . -name CMakeLists.txt -o -name "*.cmake" | xargs cmake-lint
-
+      - name: Validate CMake files
+        run: |
+          find . -name CMakeLists.txt -o -name "*.cmake" | xargs cmakelint

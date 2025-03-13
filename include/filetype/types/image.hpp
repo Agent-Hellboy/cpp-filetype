@@ -3,12 +3,12 @@
 
 #include <array>
 #include <cstdint>
-#include "filetype/type.hpp" 
+#include "filetype/type.hpp"
 
 namespace filetype {
 namespace image {
 
-using Type = ::filetype::Type; 
+using Type = ::filetype::Type;
 
 //------------------------------------------------------------------------------
 // Image file type definitions
@@ -32,14 +32,16 @@ inline const Type TYPE_JPEG{"image/jpeg", "jpg"};
  * @brief GIF image format
  * Magic: 47 49 46 38 (GIF8)
  */
-inline const std::array<uint8_t, 6> GIF_MAGIC = {0x47, 0x49, 0x46, 0x38, 0x39, 0x61}; // Represents "GIF89a"
+inline const std::array<uint8_t, 6> GIF_MAGIC = {
+    0x47, 0x49, 0x46, 0x38, 0x39, 0x61};  // Represents "GIF89a"
 inline const Type TYPE_GIF{"image/gif", "gif"};
 
 /**
  * @brief WebP image format
  * Magic: 52 49 46 46 ?? ?? ?? ?? 57 45 42 50 (RIFF....WEBP)
  */
-inline const std::array<uint8_t, 12> WEBP_MAGIC = {0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x57, 0x45, 0x42, 0x50};
+inline const std::array<uint8_t, 12> WEBP_MAGIC = {
+    0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x57, 0x45, 0x42, 0x50};
 inline const Type TYPE_WEBP{"image/webp", "webp"};
 
 /**
@@ -94,10 +96,11 @@ inline const Type TYPE_ICO{"image/x-icon", "ico"};
  * @brief HEIC image format (High Efficiency Image Format)
  * Magic: 00 00 00 ?? 66 74 79 70 68 65 69 63 (....ftyp heic)
  */
-inline const std::array<uint8_t, 12> HEIC_MAGIC = {0x00, 0x00, 0x00, 0x18, 0x66, 0x74, 0x79, 0x70, 0x68, 0x65, 0x69, 0x63};
+inline const std::array<uint8_t, 12> HEIC_MAGIC = {
+    0x00, 0x00, 0x00, 0x18, 0x66, 0x74, 0x79, 0x70, 0x68, 0x65, 0x69, 0x63};
 inline const Type TYPE_HEIC{"image/heic", "heic"};
 
-} 
-} 
+}  // namespace image
+}  // namespace filetype
 
-#endif // FILETYPE_TYPES_IMAGE_HPP
+#endif  // FILETYPE_TYPES_IMAGE_HPP

@@ -3,7 +3,7 @@
 
 #include <array>
 #include <cstdint>
-#include "filetype/type.hpp"  
+#include "filetype/type.hpp"
 
 namespace filetype {
 namespace document {
@@ -28,7 +28,8 @@ inline const Type TYPE_DOC{"application/msword", "doc"};
 // Magic: 50 4B 03 04 (PK..)
 // Note: This is a ZIP file signature; additional verification is needed.
 inline const std::array<uint8_t, 4> DOCX_MAGIC = {0x50, 0x4B, 0x03, 0x04};
-inline const Type TYPE_DOCX{"application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx"};
+inline const Type TYPE_DOCX{
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx"};
 
 // Microsoft XLS spreadsheet format
 // Magic: D0 CF 11 E0 A1 B1 1A E1 (same as DOC)
@@ -39,7 +40,8 @@ inline const Type TYPE_XLS{"application/vnd.ms-excel", "xls"};
 // Magic: 50 4B 03 04 (PK..)
 // Note: This is a ZIP file signature; additional verification is needed.
 inline const std::array<uint8_t, 4> XLSX_MAGIC = {0x50, 0x4B, 0x03, 0x04};
-inline const Type TYPE_XLSX{"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx"};
+inline const Type TYPE_XLSX{"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "xlsx"};
 
 // Microsoft PowerPoint presentation format
 // Magic: D0 CF 11 E0 A1 B1 1A E1 (same as DOC)
@@ -50,7 +52,8 @@ inline const Type TYPE_PPT{"application/vnd.ms-powerpoint", "ppt"};
 // Magic: 50 4B 03 04 (PK..)
 // Note: This is a ZIP file signature; additional verification is needed.
 inline const std::array<uint8_t, 4> PPTX_MAGIC = {0x50, 0x4B, 0x03, 0x04};
-inline const Type TYPE_PPTX{"application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx"};
+inline const Type TYPE_PPTX{
+    "application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx"};
 
 // OpenDocument Text format
 // Magic: 50 4B 03 04 (PK..)
@@ -81,7 +84,7 @@ inline const Type TYPE_RTF{"application/rtf", "rtf"};
 inline const std::array<uint8_t, 4> EPUB_MAGIC = {0x50, 0x4B, 0x03, 0x04};
 inline const Type TYPE_EPUB{"application/epub+zip", "epub"};
 
-} 
-} 
+}  // namespace document
+}  // namespace filetype
 
-#endif // FILETYPE_TYPES_DOCUMENT_HPP
+#endif  // FILETYPE_TYPES_DOCUMENT_HPP

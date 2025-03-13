@@ -3,7 +3,7 @@
 
 #include <array>
 #include <cstdint>
-#include "filetype/type.hpp"  
+#include "filetype/type.hpp"
 namespace filetype {
 namespace audio {
 
@@ -21,7 +21,8 @@ inline const Type TYPE_MP3{"audio/mpeg", "mp3"};
 
 // WAV audio format
 // Magic: 52 49 46 46 XX XX XX XX 57 41 56 45 ("RIFF....WAVE")
-inline const std::array<uint8_t, 12> WAV_MAGIC = {0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x57, 0x41, 0x56, 0x45};
+inline const std::array<uint8_t, 12> WAV_MAGIC = {
+    0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x57, 0x41, 0x56, 0x45};
 inline const Type TYPE_WAV{"audio/wav", "wav"};
 
 // MIDI audio format
@@ -51,15 +52,17 @@ inline const Type TYPE_WMA{"audio/x-ms-wma", "wma"};
 
 // AIFF audio format
 // Magic: 46 4F 52 4D XX XX XX XX 41 49 46 46 ("FORM....AIFF")
-inline const std::array<uint8_t, 12> AIFF_MAGIC = {0x46, 0x4F, 0x52, 0x4D, 0x00, 0x00, 0x00, 0x00, 0x41, 0x49, 0x46, 0x46};
+inline const std::array<uint8_t, 12> AIFF_MAGIC = {
+    0x46, 0x4F, 0x52, 0x4D, 0x00, 0x00, 0x00, 0x00, 0x41, 0x49, 0x46, 0x46};
 inline const Type TYPE_AIFF{"audio/aiff", "aiff"};
 
 // M4A audio format
 // Magic: 00 00 00 XX 66 74 79 70 4D 34 41 20 ("....ftypM4A ")
-inline const std::array<uint8_t, 12> M4A_MAGIC = {0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70, 0x4D, 0x34, 0x41, 0x20};
+inline const std::array<uint8_t, 12> M4A_MAGIC = {
+    0x00, 0x00, 0x00, 0x20, 0x66, 0x74, 0x79, 0x70, 0x4D, 0x34, 0x41, 0x20};
 inline const Type TYPE_M4A{"audio/mp4", "m4a"};
 
-} // namespace audio
-} // namespace filetype
+}  // namespace audio
+}  // namespace filetype
 
-#endif // FILETYPE_TYPES_AUDIO_TYPES_HPP
+#endif  // FILETYPE_TYPES_AUDIO_TYPES_HPP

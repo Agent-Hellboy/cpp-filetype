@@ -3,7 +3,7 @@
 
 #include <array>
 #include <cstdint>
-#include "filetype/type.hpp"  
+#include "filetype/type.hpp"
 
 namespace filetype {
 namespace video {
@@ -22,7 +22,8 @@ inline const Type TYPE_MP4{"video/mp4", "mp4"};
 
 // AVI video format
 // Magic: 52 49 46 46 XX XX XX XX 41 56 49 20 (RIFF....AVI )
-inline const std::array<uint8_t, 12> AVI_MAGIC = {0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x41, 0x56, 0x49, 0x20};
+inline const std::array<uint8_t, 12> AVI_MAGIC = {
+    0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x41, 0x56, 0x49, 0x20};
 inline const Type TYPE_AVI{"video/x-msvideo", "avi"};
 
 // MKV video format
@@ -37,7 +38,8 @@ inline const Type TYPE_WEBM{"video/webm", "webm"};
 
 // MOV video format
 // Magic: 00 00 00 XX 66 74 79 70 71 74 20 20 (....ftypqt  )
-inline const std::array<uint8_t, 12> MOV_MAGIC = {0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70, 0x71, 0x74, 0x20, 0x20};
+inline const std::array<uint8_t, 12> MOV_MAGIC = {
+    0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70, 0x71, 0x74, 0x20, 0x20};
 inline const Type TYPE_MOV{"video/quicktime", "mov"};
 
 // FLV video format
@@ -58,10 +60,11 @@ inline const Type TYPE_MPEG{"video/mpeg", "mpg"};
 
 // 3GP video format
 // Magic: 00 00 00 XX 66 74 79 70 33 67 70 (....ftyp3gp)
-inline const std::array<uint8_t, 11> THREEGP_MAGIC = {0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70};
+inline const std::array<uint8_t, 11> THREEGP_MAGIC = {
+    0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70};
 inline const Type TYPE_3GP{"video/3gpp", "3gp"};
 
-} 
-} 
+}  // namespace video
+}  // namespace filetype
 
-#endif // FILETYPE_TYPES_VIDEO_TYPES_HPP
+#endif  // FILETYPE_TYPES_VIDEO_TYPES_HPP
