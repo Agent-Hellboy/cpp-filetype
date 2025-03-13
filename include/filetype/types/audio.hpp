@@ -3,13 +3,10 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
-#include "filetype/type.hpp"  // Include the central header where filetype::Type is defined
-
+#include "filetype/type.hpp"  
 namespace filetype {
 namespace audio {
 
-// Alias the common Type so that all audio constants use the same type.
 using Type = ::filetype::Type;
 
 //------------------------------------------------------------------------------

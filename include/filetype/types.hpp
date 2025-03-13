@@ -10,68 +10,63 @@
  * all category-specific type headers.
  */
 
-// First, include the common type header.
-#include "filetype/type.hpp"
+#include <array>
+#include <cstdint>
+#include <string_view>
+#include <vector>
 
-// Include all category-specific headers.
-// These headers should include "filetype/type.hpp" on their own (or rely on this order).
+#include "filetype/type.hpp"
 #include "filetype/types/image.hpp"
 #include "filetype/types/document.hpp"
 #include "filetype/types/archive.hpp"
 #include "filetype/types/audio.hpp"
 #include "filetype/types/video.hpp"
 
-#include <string>
-#include <vector>
-#include <array>
-#include <cstdint>
-
 namespace filetype {
-
-// The common Type struct is now defined in "filetype/type.hpp".
 
 namespace types {
 
 /**
- * @brief Check if bytes match a magic number pattern
+ * @brief Check if bytes match a magic number pattern.
  * 
- * @param bytes Buffer containing file data
- * @param magic Pointer to magic number sequence
- * @param magic_size Length of the magic number sequence
- * @param offset Offset in bytes where to start matching (default: 0)
- * @return true if bytes match the magic number pattern
+ * @param bytes Buffer containing file data.
+ * @param magic Pointer to magic number sequence.
+ * @param magic_size Length of the magic number sequence.
+ * @param offset Offset in bytes where to start matching (default: 0).
+ * @return true if bytes match the magic number pattern.
  */
-bool match_magic(const std::vector<uint8_t>& bytes, 
-                   const uint8_t* magic, 
-                   size_t magic_size,
-                   size_t offset = 0);
+inline bool match_magic(const std::vector<uint8_t>& bytes, 
+                        const uint8_t* magic, 
+                        size_t magic_size,
+                        size_t offset = 0);
 
 /**
- * @brief Template version of match_magic for std::array magic numbers
+ * @brief Template version of match_magic for std::array magic numbers.
  * 
- * @tparam N Size of the magic number array
- * @param bytes Buffer containing file data
- * @param magic Array containing magic number sequence
- * @param offset Offset in bytes where to start matching (default: 0)
- * @return true if bytes match the magic number pattern
+ * @tparam N Size of the magic number array.
+ * @param bytes Buffer containing file data.
+ * @param magic Array containing magic number sequence.
+ * @param offset Offset in bytes where to start matching (default: 0).
+ * @return true if bytes match the magic number pattern.
  */
 template <size_t N>
-bool match_magic(const std::vector<uint8_t>& bytes,
-                 const std::array<uint8_t, N>& magic,
-                 size_t offset = 0) {
+inline bool match_magic(const std::vector<uint8_t>& bytes,
+                        const std::array<uint8_t, N>& magic,
+                        size_t offset = 0) {
     return match_magic(bytes, magic.data(), N, offset);
 }
 
 /**
- * @brief Check if a buffer is valid for type detection
+ * @brief Check if a buffer is valid for type detection.
  * 
- * @param bytes Buffer to check
- * @param min_size Minimum required size (default: 8 bytes)
- * @return true if buffer is valid and has sufficient size
+ * @param bytes Buffer to check.
+ * @param min_size Minimum required size (default: 8 bytes).
+ * @return true if buffer is valid and has sufficient size.
  */
-bool is_valid_buffer(const std::vector<uint8_t>& bytes, size_t min_size = 8);
+inline bool is_valid_buffer(const std::vector<uint8_t>& bytes, size_t min_size = 8);
 
 // Import commonly used types from category namespaces
+
 // Image types
 using image::TYPE_PNG;
 using image::TYPE_JPEG;
@@ -129,6 +124,7 @@ using video::TYPE_MPEG;
 using video::TYPE_3GP;
 
 // Import magic number definitions
+
 // Image magic numbers
 using image::PNG_MAGIC;
 using image::JPEG_MAGIC;
@@ -183,80 +179,7 @@ using video::MPEG_MAGIC;
 using video::MPEG_MAGIC_ALT;
 using video::THREEGP_MAGIC;
 
-} // namespace types
-
-/**
- * @brief Check if file data matches a specific file type
- * 
- * @param bytes Buffer containing file data
- * @param type Type to check against
- * @return true if the data matches the specified type
- */
-bool is(const std::vector<uint8_t>& bytes, const Type& type);
-
-/**
- * @brief Check if file data is an image format
- * 
- * @param bytes Buffer containing file data
- * @return true if the data is an image format
- */
-bool is_image(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Check if file data is a document format
- * 
- * @param bytes Buffer containing file data
- * @return true if the data is a document format
- */
-bool is_document(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Check if file data is an archive format
- * 
- * @param bytes Buffer containing file data
- * @return true if the data is an archive format
- */
-bool is_archive(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Check if file data is an audio format
- * 
- * @param bytes Buffer containing file data
- * @return true if the data is an audio format
- */
-bool is_audio(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Check if file data is a video format
- * 
- * @param bytes Buffer containing file data
- * @return true if the data is a video format
- */
-bool is_video(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Detect file type from a byte buffer
- * 
- * This function attempts to detect the file type by comparing the buffer's contents
- * with known magic numbers of various file formats.
- * 
- * @param bytes Buffer containing the file data to analyze
- * @return Pointer to the detected file type, or nullptr if type could not be determined
- */
-const Type* match(const std::vector<uint8_t>& bytes);
-
-/**
- * @brief Detect file type from a file path
- * 
- * This function reads the beginning of the file and attempts to detect its type
- * by comparing with known magic numbers.
- * 
- * @param filepath Path to the file to analyze
- * @param max_read_size Maximum number of bytes to read from the file (default: 8192)
- * @return Pointer to the detected file type, or nullptr if type could not be determined
- */
-const Type* match_file(const std::string& filepath, size_t max_read_size = 8192);
-
-} // namespace filetype
+} 
+}
 
 #endif // FILETYPE_TYPES_HPP

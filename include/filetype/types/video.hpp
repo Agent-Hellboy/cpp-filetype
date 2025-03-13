@@ -3,13 +3,11 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
-#include "filetype/type.hpp"  // Include the central header where filetype::Type is defined
+#include "filetype/type.hpp"  
 
 namespace filetype {
 namespace video {
 
-// Alias the common Type defined in filetype/types.hpp
 using Type = ::filetype::Type;
 
 //------------------------------------------------------------------------------
@@ -63,7 +61,7 @@ inline const Type TYPE_MPEG{"video/mpeg", "mpg"};
 inline const std::array<uint8_t, 11> THREEGP_MAGIC = {0x00, 0x00, 0x00, 0x14, 0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70};
 inline const Type TYPE_3GP{"video/3gpp", "3gp"};
 
-} // namespace video
-} // namespace filetype
+} 
+} 
 
 #endif // FILETYPE_TYPES_VIDEO_TYPES_HPP

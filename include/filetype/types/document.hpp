@@ -3,13 +3,11 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
-#include "filetype/type.hpp"  // Ensure the common filetype::Type is visible
+#include "filetype/type.hpp"  
 
 namespace filetype {
 namespace document {
 
-// Alias to the common filetype::Type defined in filetype/types.hpp
 using Type = ::filetype::Type;
 
 //------------------------------------------------------------------------------
@@ -83,7 +81,7 @@ inline const Type TYPE_RTF{"application/rtf", "rtf"};
 inline const std::array<uint8_t, 4> EPUB_MAGIC = {0x50, 0x4B, 0x03, 0x04};
 inline const Type TYPE_EPUB{"application/epub+zip", "epub"};
 
-} // namespace document
-} // namespace filetype
+} 
+} 
 
 #endif // FILETYPE_TYPES_DOCUMENT_HPP

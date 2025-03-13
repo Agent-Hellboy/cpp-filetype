@@ -3,13 +3,11 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
-#include "filetype/type.hpp"  // Ensure the common filetype::Type is visible
+#include "filetype/type.hpp"  
 
 namespace filetype {
 namespace archive {
 
-// Use the common Type defined in filetype/types.hpp
 using Type = ::filetype::Type;
 
 //------------------------------------------------------------------------------
@@ -63,7 +61,7 @@ inline const Type TYPE_Z{"application/x-compress", "Z"};
 inline const std::array<uint8_t, 4> LZ_MAGIC = {0x4C, 0x5A, 0x49, 0x50};
 inline const Type TYPE_LZ{"application/x-lzip", "lz"};
 
-} // namespace archive
-} // namespace filetype
+} 
+} 
 
-#endif // FILETYPE_TYPES_AR
+#endif // FILETYPE_TYPES_ARCHIVE_HPP
