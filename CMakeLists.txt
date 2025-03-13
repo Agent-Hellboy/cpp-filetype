@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Download and configure Google Test
 include(FetchContent)
-FetchContent_Declare(
+fetchcontent_declare(
     googletest
     URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
 )
-FetchContent_MakeAvailable(googletest)
+fetchcontent_makeavailable(googletest)
 
 # Create the library target
 add_library(filetype
@@ -36,4 +36,3 @@ target_link_libraries(filetype_test
 
 include(GoogleTest)
 gtest_discover_tests(filetype_test)
-
