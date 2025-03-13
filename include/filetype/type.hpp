@@ -13,15 +13,11 @@ struct Type {
     Type(const std::string& m, const std::string& ext)
         : mime(m), extension(ext) {}
     
-    // Additional constructor to support in-place construction if needed.
-    Type(std::in_place_t, const Type& other)
-        : mime(other.mime), extension(other.extension) {}
-    
     bool operator==(const Type& other) const {
         return mime == other.mime && extension == other.extension;
     }
 };
 
-} // namespace filetype
+} 
 
 #endif // FILETYPE_TYPE_HPP

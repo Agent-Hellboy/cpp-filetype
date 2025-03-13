@@ -3,14 +3,12 @@
 
 #include <array>
 #include <cstdint>
-#include <string>
 #include "filetype/type.hpp" 
-// Instead of defining a separate Type, alias it to the common filetype::Type.
-// (Ensure that filetype::Type is defined in your central types header.)
+
 namespace filetype {
 namespace image {
 
-using Type = ::filetype::Type; // Alias to the common Type defined in filetype/types.hpp
+using Type = ::filetype::Type; 
 
 //------------------------------------------------------------------------------
 // Image file type definitions
@@ -99,7 +97,7 @@ inline const Type TYPE_ICO{"image/x-icon", "ico"};
 inline const std::array<uint8_t, 12> HEIC_MAGIC = {0x00, 0x00, 0x00, 0x18, 0x66, 0x74, 0x79, 0x70, 0x68, 0x65, 0x69, 0x63};
 inline const Type TYPE_HEIC{"image/heic", "heic"};
 
-} // namespace image
-} // namespace filetype
+} 
+} 
 
 #endif // FILETYPE_TYPES_IMAGE_HPP

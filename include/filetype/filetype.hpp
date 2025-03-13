@@ -35,11 +35,13 @@
  * @version 0.1.0
  */
 
-#include "types.hpp"
+#include <array>
 #include <vector>
 #include <cstdint>
 #include <string>
-#include <algorithm>
+#include <string_view>
+
+#include "types.hpp"
 
 namespace filetype {
 
@@ -133,7 +135,7 @@ const Type* match(const std::vector<uint8_t>& bytes);
  * @param max_read_size Maximum number of bytes to read from the file (default: 8192).
  * @return Pointer to the detected file type, or nullptr if type could not be determined.
  */
-const Type* match_file(const std::string& filepath, size_t max_read_size);
+const Type* match_file(std::string_view filepath, size_t max_read_size = 8192);
 
 /**
  * @brief Check if file has a specific type.

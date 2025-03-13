@@ -1,14 +1,16 @@
+#include <algorithm>
+#include <cstring>
+#include <string_view>
+#include <fstream>
+#include <iterator>
+#include <iostream>
 #include "filetype/filetype.hpp"
 #include "filetype/types/image.hpp"
 #include "filetype/types/document.hpp"
 #include "filetype/types/archive.hpp"
 #include "filetype/types/audio.hpp"
 #include "filetype/types/video.hpp"
-#include <algorithm>
-#include <cstring>
-#include <string_view>
-#include <fstream>
-#include <iterator>
+
 
 namespace filetype {
 
@@ -20,10 +22,7 @@ namespace internal {
         }
         return std::memcmp(bytes.data() + offset, magic, length) == 0;
     }
-} // namespace internal
-
-// IMPORTANT: Ensure that your category-specific constants (e.g. image::TYPE_PNG)
-// are declared as type filetype::Type (the common type) rather than a separate type.
+} 
 
 const Type* match(const std::vector<uint8_t>& bytes) {
     if (bytes.empty()) {
@@ -94,15 +93,15 @@ const Type* match(const std::vector<uint8_t>& bytes) {
     return nullptr;
 }
 
-const Type* match_file(const std::string& filepath, size_t max_read_size) {
-    std::ifstream file(filepath, std::ios::binary);
+const Type* match_file(std::string_view filepath, size_t max_read_size) {
+    std::ifstream file(std::string(filepath), std::ios::binary);
     if (!file) {
+        std::cerr << "Error: Could not open file: " << filepath << "\n";
         return nullptr;
     }
-    std::vector<uint8_t> buffer(std::istreambuf_iterator<char>(file), {});
-    if(buffer.size() > max_read_size) {
-        buffer.resize(max_read_size);
-    }
+    std::vector<uint8_t> buffer(max_read_size);
+    file.read(reinterpret_cast<char*>(buffer.data()), max_read_size);
+    buffer.resize(static_cast<size_t>(file.gcount()));  
     return match(buffer);
 }
 
@@ -116,21 +115,26 @@ bool is(const std::vector<uint8_t>& bytes, const Type& type) {
 bool is_image(const std::vector<uint8_t>& bytes) {
     const Type* type = match(bytes);
     if (!type) return false;
-    return std::string_view(type->mime).substr(0, 6) == "image/";
+    std::string_view mime(type->mime);
+    if (mime.size() < 6) return false;
+    return mime.substr(0, 6) == "image/";
 }
 
 bool is_document(const std::vector<uint8_t>& bytes) {
     const Type* type = match(bytes);
     if (!type) return false;
-    auto mime = std::string_view(type->mime);
-    return mime.substr(0, 12) == "application/" &&
-           mime.substr(0, 14) != "application/x-";
+    std::string_view mime(type->mime);
+    if (mime.size() < 12) return false;
+    if (mime.substr(0, 12) != "application/") return false;
+    if (mime.size() >= 14 && mime.substr(0, 14) == "application/x-") return false;
+    return true;
 }
 
 bool is_archive(const std::vector<uint8_t>& bytes) {
     const Type* type = match(bytes);
     if (!type) return false;
-    auto mime = std::string_view(type->mime);
+    std::string_view mime(type->mime);
+    if (mime.size() < 14) return false;
     return mime.substr(0, 14) == "application/x-" ||
            mime == "application/zip";
 }
@@ -138,59 +142,60 @@ bool is_archive(const std::vector<uint8_t>& bytes) {
 bool is_audio(const std::vector<uint8_t>& bytes) {
     const Type* type = match(bytes);
     if (!type) return false;
-    return std::string_view(type->mime).substr(0, 6) == "audio/";
+    std::string_view mime(type->mime);
+    if (mime.size() < 6) return false;
+    return mime.substr(0, 6) == "audio/";
 }
 
 bool is_video(const std::vector<uint8_t>& bytes) {
     const Type* type = match(bytes);
     if (!type) return false;
-    return std::string_view(type->mime).substr(0, 6) == "video/";
+    std::string_view mime(type->mime);
+    if (mime.size() < 6) return false;
+    return mime.substr(0, 6) == "video/";
+}
+
+template<typename Predicate>
+const Type* match_if(const std::vector<uint8_t>& bytes, Predicate pred) {
+    const Type* t = match(bytes);
+    return (t && pred(std::string_view(t->mime))) ? t : nullptr;
 }
 
 namespace matcher {
 
 const Type* match_image(const std::vector<uint8_t>& bytes) {
-    const Type* t = match(bytes);
-    if (t && std::string_view(t->mime).substr(0, 6) == "image/") {
-        return t;
-    }
-    return nullptr;
+    return match_if(bytes, [](std::string_view mime) {
+        return mime.size() >= 6 && mime.substr(0, 6) == "image/";
+    });
 }
 
 const Type* match_document(const std::vector<uint8_t>& bytes) {
-    const Type* t = match(bytes);
-    if (t && std::string_view(t->mime).substr(0, 12) == "application/" &&
-        std::string_view(t->mime).substr(0, 14) != "application/x-") {
-        return t;
-    }
-    return nullptr;
+    return match_if(bytes, [](std::string_view mime) {
+        return mime.size() >= 12 && mime.substr(0, 12) == "application/" &&
+               (mime.size() < 14 || mime.substr(0, 14) != "application/x-");
+    });
 }
 
 const Type* match_archive(const std::vector<uint8_t>& bytes) {
-    const Type* t = match(bytes);
-    if (t && (std::string_view(t->mime).substr(0, 14) == "application/x-" ||
-              std::string_view(t->mime) == "application/zip")) {
-        return t;
-    }
-    return nullptr;
+    return match_if(bytes, [](std::string_view mime) {
+        return (mime.size() >= 14 && mime.substr(0, 14) == "application/x-") ||
+               mime == "application/zip";
+    });
 }
 
 const Type* match_audio(const std::vector<uint8_t>& bytes) {
-    const Type* t = match(bytes);
-    if (t && std::string_view(t->mime).substr(0, 6) == "audio/") {
-        return t;
-    }
-    return nullptr;
+    return match_if(bytes, [](std::string_view mime) {
+        return mime.size() >= 6 && mime.substr(0, 6) == "audio/";
+    });
 }
 
 const Type* match_video(const std::vector<uint8_t>& bytes) {
-    const Type* t = match(bytes);
-    if (t && std::string_view(t->mime).substr(0, 6) == "video/") {
-        return t;
-    }
-    return nullptr;
+    return match_if(bytes, [](std::string_view mime) {
+        return mime.size() >= 6 && mime.substr(0, 6) == "video/";
+    });
 }
 
-} // namespace matcher
+} 
 
-} // namespace filetype
+
+} 
