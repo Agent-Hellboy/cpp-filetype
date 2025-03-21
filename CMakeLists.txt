@@ -4,6 +4,9 @@ project(cpp-filetype VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Disable installation of GoogleTest
+set(INSTALL_GTEST OFF CACHE BOOL "Disable installation of GoogleTest" FORCE)
+
 # Download and configure Google Test
 include(FetchContent)
 fetchcontent_declare(

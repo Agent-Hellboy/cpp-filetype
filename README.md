@@ -20,7 +20,7 @@ $ ctest --output-on-failure
 ```
 To install, run:
 ```bash
-$ sudo cmake . --target install
+$ sudo cmake --install .
 ```
 
 installation will do below:
@@ -29,7 +29,7 @@ installation will do below:
 - install cmake configuration to /usr/local/lib/cmake/filetype
 
 ```bash
-sudo cmake . --target install
+sudo cmake --install .
 Install the project...
 -- Install configuration: ""
 -- Installing: /usr/local/lib/libfiletype.a
@@ -67,7 +67,7 @@ int main() {
 }
 ```
 
-Building example inside the repository(works if you successfully installed the library):
+To build the example within the repository, ensure that you have successfully installed the library
 
 ```bash
 g++ -std=c++17 example/file_detect.cpp -o file_detect
