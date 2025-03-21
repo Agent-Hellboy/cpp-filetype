@@ -18,7 +18,10 @@ $ cmake -DBUILD_TESTS=ON ..
 $ cmake --build .
 $ ctest --output-on-failure
 ```
-
+To install, run:
+```bash
+$ sudo cmake --build . --target install
+```
 
 ## Usage
 
@@ -36,6 +39,13 @@ int main() {
     return 0;
 }
 ```
+
+Building example inside the repository:
+
+```bash
+g++ -std=c++17 -I../include ../src/filetype.cpp ../example/file_detect.cpp -o file_detect
+```
+
 
 ## License
 
