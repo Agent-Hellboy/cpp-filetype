@@ -23,6 +23,39 @@ To install, run:
 $ sudo cmake --build . --target install
 ```
 
+installation will do below:
+- install library to /usr/local/lib
+- install headers to /usr/local/include
+- install cmake configuration to /usr/local/lib/cmake/filetype
+
+```bash
+sudo cmake --build . --target install
+[ 16%] Built target filetype
+[ 33%] Built target gtest
+[ 50%] Built target gtest_main
+[ 66%] Built target filetype_test
+[ 83%] Built target gmock
+[100%] Built target gmock_main
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/lib/libfiletype.a
+-- Up-to-date: /usr/local/include
+-- Up-to-date: /usr/local/include/filetype
+-- Up-to-date: /usr/local/include/filetype/types
+-- Up-to-date: /usr/local/include/filetype/types/document.hpp
+-- Up-to-date: /usr/local/include/filetype/types/archive.hpp
+-- Up-to-date: /usr/local/include/filetype/types/audio.hpp
+-- Up-to-date: /usr/local/include/filetype/types/video.hpp
+-- Up-to-date: /usr/local/include/filetype/types/image.hpp
+-- Up-to-date: /usr/local/include/filetype/type.hpp
+-- Up-to-date: /usr/local/include/filetype/types.hpp
+-- Up-to-date: /usr/local/include/filetype/filetype.hpp
+-- Installing: /usr/local/lib/cmake/filetype/filetypeTargets.cmake
+-- Installing: /usr/local/lib/cmake/filetype/filetypeTargets-noconfig.cmake
+-- Installing: /usr/local/lib/cmake/filetype/filetypeConfig.cmake
+-- Installing: /usr/local/lib/cmake/filetype/filetypeConfigVersion.cmake
+```
+
 ## Usage
 
 ```cpp
