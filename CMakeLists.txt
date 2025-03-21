@@ -59,7 +59,7 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
   DESTINATION include
 )
 
-# Export the targets with a namespace (e.g., filetype::) to 
+# Export the targets with a namespace (e.g., filetype::) to
 # lib/cmake/filetype
 install(EXPORT filetypeTargets
   FILE filetypeTargets.cmake
@@ -70,7 +70,7 @@ install(EXPORT filetypeTargets
 # Include helpers to generate the config files
 include(CMakePackageConfigHelpers)
 
-# Configure the filetypeConfig.cmake file to be installed in 
+# Configure the filetypeConfig.cmake file to be installed in
 # lib/cmake/filetype
 configure_package_config_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/cmake/filetypeConfig.cmake.in
