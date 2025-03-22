@@ -4,6 +4,9 @@ A C++ library for detecting file types based on their magic bytes.
 
 [![Build](https://github.com/Agent-Hellboy/cpp-filetype/actions/workflows/ci.yml/badge.svg)](https://github.com/Agent-Hellboy/cpp-filetype/actions/workflows/ci.yml)
 
+## Documentation
+
+[Documentation](https://agent-hellboy.github.io/cpp-filetype/)
 
 ## Installation
 
