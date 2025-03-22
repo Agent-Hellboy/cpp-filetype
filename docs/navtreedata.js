@@ -24,42 +24,47 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
-    [ "cpp-filetype", "index.html", "index" ],
+  [ "cpp-filetype", "index.html", [
+    [ "Documentation", "index.html#autotoc_md1", null ],
+    [ "Installation", "index.html#autotoc_md2", [
+      [ "From Source", "index.html#autotoc_md3", null ]
+    ] ],
+    [ "Usage", "index.html#autotoc_md4", null ],
+    [ "License", "index.html#autotoc_md5", null ],
     [ "Contributing to cpp-filetype", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", [
-      [ "Table of Contents", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md6", null ],
-      [ "Development Setup", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md7", [
-        [ "Prerequisites", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md8", null ],
-        [ "Getting Started", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md9", null ],
-        [ "Project Structure", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md10", null ]
+      [ "Table of Contents", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md7", null ],
+      [ "Development Setup", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md8", [
+        [ "Prerequisites", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md9", null ],
+        [ "Getting Started", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md10", null ],
+        [ "Project Structure", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md11", null ]
       ] ],
-      [ "Coding Standards", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md11", [
-        [ "C++ Style Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", null ],
-        [ "Code Formatting", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
-        [ "Best Practices", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", null ]
+      [ "Coding Standards", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md12", [
+        [ "C++ Style Guide", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md13", null ],
+        [ "Code Formatting", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md14", null ],
+        [ "Best Practices", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md15", null ]
       ] ],
-      [ "Pull Request Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md15", [
-        [ "Before Submitting", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", null ],
-        [ "Submitting a Pull Request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
-        [ "Review Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ]
+      [ "Pull Request Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md16", [
+        [ "Before Submitting", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md17", null ],
+        [ "Submitting a Pull Request", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md18", null ],
+        [ "Review Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", null ]
       ] ],
-      [ "Testing Requirements", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md19", [
-        [ "Writing Tests", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", null ],
-        [ "Test Categories", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
-        [ "Running Tests", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ]
+      [ "Testing Requirements", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md20", [
+        [ "Writing Tests", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md21", null ],
+        [ "Test Categories", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md22", null ],
+        [ "Running Tests", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", null ]
       ] ],
-      [ "Adding New File Types", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md23", [
-        [ "Research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", null ],
-        [ "Implementation Steps", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md25", null ],
-        [ "Testing New Types", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md26", null ]
+      [ "Adding New File Types", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md24", [
+        [ "Research", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md25", null ],
+        [ "Implementation Steps", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md26", null ],
+        [ "Testing New Types", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md27", null ]
       ] ],
-      [ "Documentation Guidelines", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md27", [
-        [ "Code Documentation", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md28", null ],
-        [ "Example Documentation", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29", null ],
-        [ "README and Markdown", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md30", null ]
+      [ "Documentation Guidelines", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md28", [
+        [ "Code Documentation", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md29", null ],
+        [ "Example Documentation", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md30", null ],
+        [ "README and Markdown", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md31", null ]
       ] ],
-      [ "Release Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md31", null ],
-      [ "Questions or Need Help?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md32", null ]
+      [ "Release Process", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md32", null ],
+      [ "Questions or Need Help?", "md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md33", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

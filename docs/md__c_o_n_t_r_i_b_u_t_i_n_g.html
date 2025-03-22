@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Contributing to cpp-filetype</title>
+<title>cpp-filetype: Contributing to cpp-filetype</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">cpp-filetype
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -105,9 +105,9 @@ $(function(){initNavTree('md__c_o_n_t_r_i_b_u_t_i_n_g.html',''); initResizable(t
   <div class="headertitle"><div class="title">Contributing to cpp-filetype</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md5"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md6"></a></p>
 <p>Thank you for your interest in contributing to cpp-filetype! This document provides guidelines and instructions for contributing to this file type detection library.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Table of Contents</h1>
 <ul>
 <li>Development Setup</li>
@@ -118,9 +118,9 @@ Table of Contents</h1>
 <li>Documentation Guidelines</li>
 <li>Release Process</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Development Setup</h1>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Prerequisites</h2>
 <ul>
 <li>C++17 compatible compiler</li>
@@ -128,7 +128,7 @@ Prerequisites</h2>
 <li>Git</li>
 <li>Google Test (for running tests)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Getting Started</h2>
 <ol type="1">
 <li>Fork the repository on GitHub</li>
@@ -144,7 +144,7 @@ Getting Started</h2>
 <li>Create a new branch for your feature or bug fix: <div class="fragment"><div class="line">git checkout -b feature/your-feature-name</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="autotoc_md11"></a>
 Project Structure</h2>
 <ul>
 <li><code>include/filetype/</code> - Public API headers</li>
@@ -154,9 +154,9 @@ Project Structure</h2>
 <li><code>examples/</code> - Example usage</li>
 <li><code>cmake/</code> - CMake configuration files</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Coding Standards</h1>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
 C++ Style Guide</h2>
 <p>We follow a consistent coding style throughout the project:</p>
 <ul>
@@ -171,7 +171,7 @@ C++ Style Guide</h2>
 <li><b>Line Length</b>: Aim for a maximum of 100 characters</li>
 <li><b>Comments</b>: Use Doxygen-style comments for public API elements</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md14"></a>
 Code Formatting</h2>
 <p>Consider using clang-format to automatically format your code. A <code>.clang-format</code> file is provided in the repository root.</p>
 <div class="fragment"><div class="line"># Format a specific file</div>
@@ -179,7 +179,7 @@ Code Formatting</h2>
 <div class="line"> </div>
 <div class="line"># Format all files</div>
 <div class="line">find include src test -name &quot;*.hpp&quot; -o -name &quot;*.cpp&quot; | xargs clang-format -i</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
 Best Practices</h2>
 <ul>
 <li>Prefer modern C++ features and idioms</li>
@@ -189,9 +189,9 @@ Best Practices</h2>
 <li>Keep functions focused and concise</li>
 <li>Write self-documenting code with meaningful names</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Pull Request Process</h1>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Before Submitting</h2>
 <ol type="1">
 <li>Update or add tests for your changes</li>
@@ -200,7 +200,7 @@ Before Submitting</h2>
 <li>Make sure your code follows our coding standards</li>
 <li>Rebase your branch to include the latest changes from main</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Submitting a Pull Request</h2>
 <ol type="1">
 <li>Push your changes to your fork: <div class="fragment"><div class="line">git push origin feature/your-feature-name</div>
@@ -215,7 +215,7 @@ Submitting a Pull Request</h2>
 </ul>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Review Process</h2>
 <ol type="1">
 <li>Maintainers will review your PR</li>
@@ -223,9 +223,9 @@ Review Process</h2>
 <li>Once approved, a maintainer will merge your PR</li>
 <li>Your contribution will be acknowledged in the project's changelog</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md19"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Testing Requirements</h1>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Writing Tests</h2>
 <ul>
 <li>All new code should have corresponding tests</li>
@@ -233,7 +233,7 @@ Writing Tests</h2>
 <li>Aim for high test coverage (especially edge cases)</li>
 <li>Test both success and failure paths</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Test Categories</h2>
 <ol type="1">
 <li><b>Unit Tests</b>: Test individual functions and classes</li>
@@ -247,7 +247,7 @@ Test Categories</h2>
 </ul>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Running Tests</h2>
 <div class="fragment"><div class="line"># Build and run all tests</div>
 <div class="line">cd build</div>
@@ -259,9 +259,9 @@ Running Tests</h2>
 <div class="line"> </div>
 <div class="line"># Run tests with verbose output</div>
 <div class="line">ctest -V</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md24"></a>
 Adding New File Types</h1>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Research</h2>
 <ol type="1">
 <li>Find the file format specification</li>
@@ -269,7 +269,7 @@ Research</h2>
 <li>Determine the correct MIME type</li>
 <li>Verify the standard file extension</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Implementation Steps</h2>
 <ol type="1">
 <li>Select the appropriate category file (image, document, archive, audio, or video)</li>
@@ -298,16 +298,16 @@ Implementation Steps</h2>
 </div><!-- fragment --></li>
 <li>Update the README.md to include the new format</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Testing New Types</h2>
 <ul>
 <li>Create test files or byte sequences for the new format</li>
 <li>Test with both valid and invalid files</li>
 <li>Test edge cases (small files, corrupted headers)</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md28"></a>
 Documentation Guidelines</h1>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Code Documentation</h2>
 <ul>
 <li>Use Doxygen-style comments for all public API elements</li>
@@ -315,18 +315,18 @@ Code Documentation</h2>
 <li>Include usage examples for complex functions</li>
 <li>Use meaningful names that don't need excessive comments</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Example Documentation</h2>
 <div class="fragment"><div class="line"></div>
 <div class="line">std::optional&lt;Type&gt; match(<span class="keyword">const</span> std::vector&lt;uint8_t&gt;&amp; bytes);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
 README and Markdown</h2>
 <ul>
 <li>Keep the README.md updated with new features and types</li>
 <li>Use clear and concise language</li>
 <li>Include code examples</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Release Process</h1>
 <ol type="1">
 <li>Update version number in CMakeLists.txt</li>
@@ -335,7 +335,7 @@ Release Process</h1>
 <li>Create a GitHub release with release notes</li>
 <li>Update documentation as needed</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<h1><a class="anchor" id="autotoc_md33"></a>
 Questions or Need Help?</h1>
 <ul>
 <li>Open an issue on GitHub for questions or problems</li>
@@ -346,11 +346,8 @@ Questions or Need Help?</h1>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
-  </ul>
+<div id="custom-footer" style="text-align:center; margin-top:20px;">
+    <a href="https://github.com/agent-hellboy/cpp-filetype" target="_blank">
+        Contribute on GitHub
+    </a>
 </div>
-</body>
-</html>

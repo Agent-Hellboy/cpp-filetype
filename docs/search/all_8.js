@@ -1,8 +1,8 @@
 var searchData=
 [
   ['ico_5fmagic_0',['ICO_MAGIC',['../types_8hpp.html#aa4a89886293d2126fc45c80cc163751e',1,'filetype::types']]],
-  ['implementation_20steps_1',['Implementation Steps',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md25',1,'']]],
-  ['installation_2',['Installation',['../index.html#autotoc_md1',1,'']]],
+  ['implementation_20steps_1',['Implementation Steps',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md26',1,'']]],
+  ['installation_2',['Installation',['../index.html#autotoc_md2',1,'']]],
   ['is_3',['is',['../filetype_8hpp.html#ad6a19a7ac50db08f30cff90290523ff8',1,'filetype']]],
   ['is_5farchive_4',['is_archive',['../filetype_8hpp.html#a9726d9e81cbf7c95cfebaba529141f8c',1,'filetype']]],
   ['is_5faudio_5',['is_audio',['../filetype_8hpp.html#a6aac0cb7f58284d83d6591e78bd1c371',1,'filetype']]],

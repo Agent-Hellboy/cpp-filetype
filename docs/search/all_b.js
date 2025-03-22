@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['markdown_0',['README and Markdown',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md30',1,'']]],
+  ['markdown_0',['README and Markdown',['../md__c_o_n_t_r_i_b_u_t_i_n_g.html#autotoc_md31',1,'']]],
   ['match_1',['match',['../filetype_8hpp.html#af55dcf93b6a4e9312a948f61c6590831',1,'filetype']]],
   ['match_5farchive_2',['match_archive',['../filetype_8hpp.html#af79d67d24c86d1fa538441cfbd8244fb',1,'filetype::matcher']]],
   ['match_5faudio_3',['match_audio',['../filetype_8hpp.html#ae24d97cb60f33c0ce0893e19189a118f',1,'filetype::matcher']]],
