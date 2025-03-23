@@ -101,7 +101,7 @@ jobs:
           find include src test examples -name '*.hpp' -o -name '*.cpp' | xargs clang-format --dry-run --Werror
 
   static-analysis:
-    name: Static Analysis
+    name: Static Analysis (cppcheck)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -139,3 +139,17 @@ jobs:
       - name: Validate CMake files
         run: |
           find . -name CMakeLists.txt -o -name "*.cmake" | xargs cmakelint
+
+  cpplint:
+    name: Code Style Lint (cpplint)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install cpplint
+        run: pip install cpplint
+
+      - name: Run cpplint
+        run: |
+          # Lint all C++ source and header files in the project
+          find include src test examples -type f \( -name "*.cpp" -o -name "*.hpp" \) | xargs cpplint
