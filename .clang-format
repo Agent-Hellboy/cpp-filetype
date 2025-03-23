@@ -1,9 +1,9 @@
 ---
 Language: Cpp
-# BasedOnStyle: LLVM
-Standard: c++17
+BasedOnStyle: Google
+Standard: Cpp17
 
-# Indentation
+# Indentation settings
 IndentWidth: 4
 UseTab: Never
 TabWidth: 4
@@ -13,9 +13,11 @@ IndentGotoLabels: true
 IndentPPDirectives: BeforeHash
 NamespaceIndentation: None
 
-# Line length and wrapping
-ColumnLimit: 100
+# Limit line length to 80 characters and reflow comments
+ColumnLimit: 80
 ReflowComments: true
+
+# Line breaking options
 BreakBeforeBinaryOperators: None
 BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
@@ -24,7 +26,7 @@ BreakStringLiterals: true
 AlwaysBreakTemplateDeclarations: Yes
 AlwaysBreakBeforeMultilineStrings: false
 
-# Braces and blocks
+# Braces and one-liners
 BreakBeforeBraces: Attach
 AllowShortBlocksOnASingleLine: Empty
 AllowShortFunctionsOnASingleLine: Inline
@@ -34,7 +36,7 @@ AllowShortLoopsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 
-# Spacing and alignment
+# Spacing and punctuation
 SpaceAfterCStyleCast: false
 SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
@@ -64,11 +66,11 @@ AlignEscapedNewlines: Right
 AlignOperands: Align
 AlignTrailingComments: true
 
-# Pointer alignment
+# Pointer and reference alignment
 PointerAlignment: Left
 ReferenceAlignment: Left
 
-# Function declarations/definitions
+# Function parameters formatting
 BinPackArguments: false
 BinPackParameters: false
 AllowAllArgumentsOnNextLine: true
@@ -81,14 +83,14 @@ EmptyLineBeforeAccessModifier: LogicalBlock
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 
 # Include sorting
-SortIncludes: CaseSensitive
+SortIncludes: true
 IncludeBlocks: Preserve
 IncludeCategories:
-  - Regex:    '^"[[:alnum:]_]+\.h"'
+  - Regex:    '^"[^/]*\.h"'
     Priority: 1
-  - Regex:    '^<[[:alnum:]_]+\.h>'
+  - Regex:    '^<[^/]*\.h>'
     Priority: 2
-  - Regex:    '^<[[:alnum:]_]+>'
+  - Regex:    '^<'
     Priority: 3
   - Regex:    '.*'
     Priority: 4
@@ -98,4 +100,5 @@ KeepEmptyLinesAtTheStartOfBlocks: false
 MaxEmptyLinesToKeep: 1
 SortUsingDeclarations: true
 FixNamespaceComments: true
-
+InsertTrailingNewline: true
+...

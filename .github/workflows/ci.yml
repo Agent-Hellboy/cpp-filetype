@@ -152,4 +152,4 @@ jobs:
       - name: Run cpplint
         run: |
           # Lint all C++ source and header files in the project
-          find include src test examples -type f \( -name "*.cpp" -o -name "*.hpp" \) | xargs cpplint
+          find include src test examples -type f \( -name "*.cpp" -o -name "*.hpp" \) | xargs cpplint --filter=-whitespace/indent_namespace --recursive

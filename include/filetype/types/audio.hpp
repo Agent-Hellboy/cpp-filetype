@@ -1,8 +1,11 @@
-#ifndef FILETYPE_TYPES_AUDIO_TYPES_HPP
-#define FILETYPE_TYPES_AUDIO_TYPES_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_TYPES_AUDIO_HPP_
+#define INCLUDE_FILETYPE_TYPES_AUDIO_HPP_
 
 #include <array>
 #include <cstdint>
+
 #include "filetype/type.hpp"
 namespace filetype {
 namespace audio {
@@ -47,7 +50,8 @@ inline const Type TYPE_OGG{"audio/ogg", "ogg"};
 
 // WMA audio format
 // Magic: 30 26 B2 75 8E 66 CF 11
-inline const std::array<uint8_t, 8> WMA_MAGIC = {0x30, 0x26, 0xB2, 0x75, 0x8E, 0x66, 0xCF, 0x11};
+inline const std::array<uint8_t, 8> WMA_MAGIC = {0x30, 0x26, 0xB2, 0x75,
+                                                 0x8E, 0x66, 0xCF, 0x11};
 inline const Type TYPE_WMA{"audio/x-ms-wma", "wma"};
 
 // AIFF audio format
@@ -65,4 +69,4 @@ inline const Type TYPE_M4A{"audio/mp4", "m4a"};
 }  // namespace audio
 }  // namespace filetype
 
-#endif  // FILETYPE_TYPES_AUDIO_TYPES_HPP
+#endif  // INCLUDE_FILETYPE_TYPES_AUDIO_HPP_
