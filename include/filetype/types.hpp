@@ -49,7 +49,8 @@ inline bool match_magic(const std::vector<uint8_t>& bytes, const uint8_t* magic,
  * @param offset Offset in bytes where to start matching (default: 0).
  * @return true if bytes match the magic number pattern.
  */
-template <size_t N> inline bool match_magic(const std::vector<uint8_t>& bytes,
+template <size_t N>
+inline bool match_magic(const std::vector<uint8_t>& bytes,
                         const std::array<uint8_t, N>& magic,
                         size_t offset = 0) {
   return match_magic(bytes, magic.data(), N, offset);

@@ -1,15 +1,16 @@
 // Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
 
+#include "filetype/filetype.hpp"
+
 #include <algorithm>
 #include <cstring>
 #include <fstream>
 #include <iostream>
 #include <iterator>
 #include <string>
-#include <vector>
 #include <string_view>
+#include <vector>
 
-#include "filetype/filetype.hpp"
 #include "filetype/types/archive.hpp"
 #include "filetype/types/audio.hpp"
 #include "filetype/types/document.hpp"
@@ -19,11 +20,11 @@
 namespace filetype {
 namespace internal {
 bool match_magic(const std::vector<uint8_t>& bytes, const uint8_t* magic,
-size_t length, size_t offset = 0) {
-if (bytes.size() < length + offset) {
-return false;
-}
-return std::memcmp(bytes.data() + offset, magic, length) == 0;
+                 size_t length, size_t offset = 0) {
+  if (bytes.size() < length + offset) {
+    return false;
+  }
+  return std::memcmp(bytes.data() + offset, magic, length) == 0;
 }
 }  // namespace internal
 

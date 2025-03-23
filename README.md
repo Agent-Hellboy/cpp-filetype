@@ -79,6 +79,23 @@ To build the example within the repository, ensure that you have successfully in
 g++ -std=c++17 example/file_detect.cpp -o file_detect -lfiletype
 ```
 
+## Development
+
+### Prerequisites for Development
+
+Install pre-commit:
+
+```bash
+pip install pre-commit
+```
+
+Install and run pre-commit hooks:
+
+```bash
+pre-commit install
+pre-commit run --all
+```
+
 
 ## License
 
