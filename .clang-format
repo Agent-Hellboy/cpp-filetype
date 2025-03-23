@@ -1,7 +1,7 @@
 ---
 Language: Cpp
 BasedOnStyle: Google
-Standard: Cpp17
+Standard: C++17
 
 # Indentation settings
 IndentWidth: 4

@@ -36,7 +36,7 @@ inline const Type TYPE_TAR{"application/x-tar", "tar"};
 // 7Z archive format
 // Magic: 37 7A BC AF 27 1C (7z..')
 inline const std::array<uint8_t, 6> SEVEN_Z_MAGIC = {0x37, 0x7A, 0xBC,
-                                                    0xAF, 0x27, 0x1C};
+                                                     0xAF, 0x27, 0x1C};
 inline const Type TYPE_7Z{"application/x-7z-compressed", "7z"};
 
 // GZ archive format

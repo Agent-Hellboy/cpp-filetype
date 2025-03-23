@@ -98,7 +98,7 @@ jobs:
 
       - name: Check formatting
         run: |
-          find include src test examples -name '*.hpp' -o -name '*.cpp' | xargs clang-format --dry-run --Werror
+          find include src test examples -name '*.hpp' -o -name '*.cpp' | xargs clang-format --dry-run --Werror --style=Google
 
   static-analysis:
     name: Static Analysis (cppcheck)

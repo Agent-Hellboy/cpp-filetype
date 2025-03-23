@@ -1,9 +1,13 @@
-#include <vector>
-#include "filetype/filetype.hpp"
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
 #include <gtest/gtest.h>
+#include <vector>
+
+#include "filetype/filetype.hpp"
+
 
 class FileTypeTest : public ::testing::Test {
-protected:
+ protected:
     void SetUp() override {
         // Setup test data
         png_data = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
