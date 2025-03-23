@@ -1,8 +1,11 @@
-#ifndef FILETYPE_TYPES_ARCHIVE_HPP
-#define FILETYPE_TYPES_ARCHIVE_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_TYPES_ARCHIVE_HPP_
+#define INCLUDE_FILETYPE_TYPES_ARCHIVE_HPP_
 
 #include <array>
 #include <cstdint>
+
 #include "filetype/type.hpp"
 
 namespace filetype {
@@ -21,7 +24,8 @@ inline const Type TYPE_ZIP{"application/zip", "zip"};
 
 // RAR archive format
 // Magic: 52 61 72 21 1A 07 00 (Rar!..)
-inline const std::array<uint8_t, 7> RAR_MAGIC = {0x52, 0x61, 0x72, 0x21, 0x1A, 0x07, 0x00};
+inline const std::array<uint8_t, 7> RAR_MAGIC = {0x52, 0x61, 0x72, 0x21,
+                                                 0x1A, 0x07, 0x00};
 inline const Type TYPE_RAR{"application/x-rar-compressed", "rar"};
 
 // TAR archive format
@@ -31,7 +35,8 @@ inline const Type TYPE_TAR{"application/x-tar", "tar"};
 
 // 7Z archive format
 // Magic: 37 7A BC AF 27 1C (7z..')
-inline const std::array<uint8_t, 6> SEVEN_Z_MAGIC = {0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C};
+inline const std::array<uint8_t, 6> SEVEN_Z_MAGIC = {0x37, 0x7A, 0xBC,
+                                                     0xAF, 0x27, 0x1C};
 inline const Type TYPE_7Z{"application/x-7z-compressed", "7z"};
 
 // GZ archive format
@@ -48,7 +53,8 @@ inline const Type TYPE_BZIP2{"application/x-bzip2", "bzip2"};
 
 // XZ archive format
 // Magic: FD 37 7A 58 5A 00
-inline const std::array<uint8_t, 6> XZ_MAGIC = {0xFD, 0x37, 0x7A, 0x58, 0x5A, 0x00};
+inline const std::array<uint8_t, 6> XZ_MAGIC = {0xFD, 0x37, 0x7A,
+                                                0x58, 0x5A, 0x00};
 inline const Type TYPE_XZ{"application/x-xz", "xz"};
 
 // Z archive format (compress)
@@ -64,4 +70,4 @@ inline const Type TYPE_LZ{"application/x-lzip", "lz"};
 }  // namespace archive
 }  // namespace filetype
 
-#endif  // FILETYPE_TYPES_ARCHIVE_HPP
+#endif  // INCLUDE_FILETYPE_TYPES_ARCHIVE_HPP_

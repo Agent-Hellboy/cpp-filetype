@@ -1,8 +1,11 @@
-#ifndef FILETYPE_TYPES_IMAGE_HPP
-#define FILETYPE_TYPES_IMAGE_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_TYPES_IMAGE_HPP_
+#define INCLUDE_FILETYPE_TYPES_IMAGE_HPP_
 
 #include <array>
 #include <cstdint>
+
 #include "filetype/type.hpp"
 
 namespace filetype {
@@ -18,7 +21,8 @@ using Type = ::filetype::Type;
  * @brief PNG image format
  * Magic: 89 50 4E 47 0D 0A 1A 0A
  */
-inline const std::array<uint8_t, 8> PNG_MAGIC = {0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A};
+inline const std::array<uint8_t, 8> PNG_MAGIC = {0x89, 0x50, 0x4E, 0x47,
+                                                 0x0D, 0x0A, 0x1A, 0x0A};
 inline const Type TYPE_PNG{"image/png", "png"};
 
 /**
@@ -48,7 +52,8 @@ inline const Type TYPE_WEBP{"image/webp", "webp"};
  * @brief Canon Raw v2 image format
  * Magic: 49 49 2A 00 10 00 00 00
  */
-inline const std::array<uint8_t, 8> CR2_MAGIC = {0x49, 0x49, 0x2A, 0x00, 0x10, 0x00, 0x00, 0x00};
+inline const std::array<uint8_t, 8> CR2_MAGIC = {0x49, 0x49, 0x2A, 0x00,
+                                                 0x10, 0x00, 0x00, 0x00};
 inline const Type TYPE_CR2{"image/x-canon-cr2", "cr2"};
 
 /**
@@ -103,4 +108,4 @@ inline const Type TYPE_HEIC{"image/heic", "heic"};
 }  // namespace image
 }  // namespace filetype
 
-#endif  // FILETYPE_TYPES_IMAGE_HPP
+#endif  // INCLUDE_FILETYPE_TYPES_IMAGE_HPP_

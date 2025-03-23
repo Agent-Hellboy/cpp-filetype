@@ -1,13 +1,15 @@
-#ifndef FILETYPE_TYPES_HPP
-#define FILETYPE_TYPES_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_TYPES_HPP_
+#define INCLUDE_FILETYPE_TYPES_HPP_
 
 /**
  * @file types.hpp
  * @brief Main header file for file type definitions
  *
  * This header serves as the central include file for all file type definitions
- * in the cpp-filetype library. It includes the common type definition as well as
- * all category-specific type headers.
+ * in the cpp-filetype library. It includes the common type definition as well
+ * as all category-specific type headers.
  */
 
 #include <array>
@@ -35,10 +37,8 @@ namespace types {
  * @param offset Offset in bytes where to start matching (default: 0).
  * @return true if bytes match the magic number pattern.
  */
-inline bool match_magic(const std::vector<uint8_t>& bytes,
-                        const uint8_t* magic,
-                        size_t magic_size,
-                        size_t offset = 0);
+inline bool match_magic(const std::vector<uint8_t>& bytes, const uint8_t* magic,
+                        size_t magic_size, size_t offset = 0);
 
 /**
  * @brief Template version of match_magic for std::array magic numbers.
@@ -53,7 +53,7 @@ template <size_t N>
 inline bool match_magic(const std::vector<uint8_t>& bytes,
                         const std::array<uint8_t, N>& magic,
                         size_t offset = 0) {
-    return match_magic(bytes, magic.data(), N, offset);
+  return match_magic(bytes, magic.data(), N, offset);
 }
 
 /**
@@ -63,7 +63,8 @@ inline bool match_magic(const std::vector<uint8_t>& bytes,
  * @param min_size Minimum required size (default: 8 bytes).
  * @return true if buffer is valid and has sufficient size.
  */
-inline bool is_valid_buffer(const std::vector<uint8_t>& bytes, size_t min_size = 8);
+inline bool is_valid_buffer(const std::vector<uint8_t>& bytes,
+                            size_t min_size = 8);
 
 // Import commonly used types from category namespaces
 
@@ -182,4 +183,4 @@ using video::WMV_MAGIC;
 }  // namespace types
 }  // namespace filetype
 
-#endif  // FILETYPE_TYPES_HPP
+#endif  // INCLUDE_FILETYPE_TYPES_HPP_

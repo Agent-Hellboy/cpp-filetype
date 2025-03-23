@@ -1,12 +1,15 @@
-#ifndef FILETYPE_HPP
-#define FILETYPE_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_FILETYPE_HPP_
+#define INCLUDE_FILETYPE_FILETYPE_HPP_
 
 /**
  * @file filetype.hpp
  * @brief Main header file for the cpp-filetype library
  *
- * This library provides functionality to detect file types based on their magic numbers.
- * Supported file types include images, documents, archives, audio, and video formats.
+ * This library provides functionality to detect file types based on their magic
+ * numbers. Supported file types include images, documents, archives, audio, and
+ * video formats.
  *
  * @example
  * ```cpp
@@ -41,7 +44,7 @@
 #include <string_view>
 #include <vector>
 
-#include "types.hpp"
+#include "filetype/types.hpp"
 
 namespace filetype {
 
@@ -63,10 +66,8 @@ bool is_valid_buffer(const std::vector<uint8_t>& bytes, size_t min_size = 8);
  * @param offset Offset in bytes where to start matching (default: 0).
  * @return true if bytes match the magic number pattern.
  */
-bool match_magic(const std::vector<uint8_t>& bytes,
-                 const uint8_t* magic,
-                 size_t magic_size,
-                 size_t offset = 0);
+bool match_magic(const std::vector<uint8_t>& bytes, const uint8_t* magic,
+                 size_t magic_size, size_t offset = 0);
 
 /**
  * @brief Template version of match_magic for std::array magic numbers.
@@ -79,9 +80,8 @@ bool match_magic(const std::vector<uint8_t>& bytes,
  */
 template <size_t N>
 bool match_magic(const std::vector<uint8_t>& bytes,
-                 const std::array<uint8_t, N>& magic,
-                 size_t offset = 0) {
-    return match_magic(bytes, magic.data(), N, offset);
+                 const std::array<uint8_t, N>& magic, size_t offset = 0) {
+  return match_magic(bytes, magic.data(), N, offset);
 }
 
 /**
@@ -93,10 +93,8 @@ bool match_magic(const std::vector<uint8_t>& bytes,
  * @param offset Offset where the magic number should appear (default: 0).
  * @return true if the file matches the specified format.
  */
-bool is_type(const std::vector<uint8_t>& bytes,
-             const uint8_t* magic,
-             size_t magic_size,
-             size_t offset = 0);
+bool is_type(const std::vector<uint8_t>& bytes, const uint8_t* magic,
+             size_t magic_size, size_t offset = 0);
 
 /**
  * @brief Template version of is_type for std::array magic numbers.
@@ -109,19 +107,19 @@ bool is_type(const std::vector<uint8_t>& bytes,
  */
 template <size_t N>
 bool is_type(const std::vector<uint8_t>& bytes,
-             const std::array<uint8_t, N>& magic,
-             size_t offset = 0) {
-    return is_type(bytes, magic.data(), N, offset);
+             const std::array<uint8_t, N>& magic, size_t offset = 0) {
+  return is_type(bytes, magic.data(), N, offset);
 }
 
 /**
  * @brief Detect file type from a byte buffer.
  *
- * This function attempts to detect the file type by comparing the buffer's contents
- * with known magic numbers of various file formats.
+ * This function attempts to detect the file type by comparing the buffer's
+ * contents with known magic numbers of various file formats.
  *
  * @param bytes Buffer containing the file data to analyze.
- * @return Pointer to the detected file type, or nullptr if type could not be determined.
+ * @return Pointer to the detected file type, or nullptr if type could not be
+ * determined.
  */
 const Type* match(const std::vector<uint8_t>& bytes);
 
@@ -132,8 +130,10 @@ const Type* match(const std::vector<uint8_t>& bytes);
  * by comparing with known magic numbers.
  *
  * @param filepath Path to the file to analyze.
- * @param max_read_size Maximum number of bytes to read from the file (default: 8192).
- * @return Pointer to the detected file type, or nullptr if type could not be determined.
+ * @param max_read_size Maximum number of bytes to read from the file (default:
+ * 8192).
+ * @return Pointer to the detected file type, or nullptr if type could not be
+ * determined.
  */
 const Type* match_file(std::string_view filepath, size_t max_read_size = 8192);
 
@@ -227,4 +227,4 @@ const Type* match_video(const std::vector<uint8_t>& bytes);
 
 }  // namespace filetype
 
-#endif  // FILETYPE_HPP
+#endif  // INCLUDE_FILETYPE_FILETYPE_HPP_

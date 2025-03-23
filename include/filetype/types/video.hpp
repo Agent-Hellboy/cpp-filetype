@@ -1,8 +1,11 @@
-#ifndef FILETYPE_TYPES_VIDEO_TYPES_HPP
-#define FILETYPE_TYPES_VIDEO_TYPES_HPP
+// Copyright 2025 Prince Roshan <princekrroshan01@gmail.com>
+
+#ifndef INCLUDE_FILETYPE_TYPES_VIDEO_HPP_
+#define INCLUDE_FILETYPE_TYPES_VIDEO_HPP_
 
 #include <array>
 #include <cstdint>
+
 #include "filetype/type.hpp"
 
 namespace filetype {
@@ -17,7 +20,8 @@ using Type = ::filetype::Type;
 // MP4 video format
 // Magic: 00 00 00 XX 66 74 79 70 (....ftyp)
 // Common variants: iso2, iso3, iso4, isom, mp41, mp42, dash
-inline const std::array<uint8_t, 8> MP4_MAGIC = {0x00, 0x00, 0x00, 0x18, 0x66, 0x74, 0x79, 0x70};
+inline const std::array<uint8_t, 8> MP4_MAGIC = {0x00, 0x00, 0x00, 0x18,
+                                                 0x66, 0x74, 0x79, 0x70};
 inline const Type TYPE_MP4{"video/mp4", "mp4"};
 
 // AVI video format
@@ -49,7 +53,8 @@ inline const Type TYPE_FLV{"video/x-flv", "flv"};
 
 // WMV video format
 // Magic: 30 26 B2 75 8E 66 CF 11 (same header as ASF)
-inline const std::array<uint8_t, 8> WMV_MAGIC = {0x30, 0x26, 0xB2, 0x75, 0x8E, 0x66, 0xCF, 0x11};
+inline const std::array<uint8_t, 8> WMV_MAGIC = {0x30, 0x26, 0xB2, 0x75,
+                                                 0x8E, 0x66, 0xCF, 0x11};
 inline const Type TYPE_WMV{"video/x-ms-wmv", "wmv"};
 
 // MPEG video format
@@ -67,4 +72,4 @@ inline const Type TYPE_3GP{"video/3gpp", "3gp"};
 }  // namespace video
 }  // namespace filetype
 
-#endif  // FILETYPE_TYPES_VIDEO_TYPES_HPP
+#endif  // INCLUDE_FILETYPE_TYPES_VIDEO_HPP_
